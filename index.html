@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Menu Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/* Add styles for responsive design */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px;
+			border: none;
+			cursor: pointer;
+			width: 200px;
+			font-size: 20px;
+		}
+
+		/* Add hover effect to the buttons */
+		.button:hover {
+			background-color: #3e8e41;
+		}
+
+		/* Add styles for the menu items */
+		.menu-item {
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+    <div class="menu-item">
+		
+	</div>
+	<div class="container">
+		<button class="button" id="breakfast-btn">Breakfast</button>
+		<button class="button" id="lunch-btn">Lunch</button>
+		<button class="button" id="dinner-btn">Dinner</button>
+	</div>
+	<script>
+		// Define menu items for breakfast, lunch, and dinner
+		const breakfastItems = ['Pancakes', 'Waffles', 'Oatmeal', 'Eggs and Bacon', 'Toast and Jam'];
+		const lunchItems = ['Grilled Cheese Sandwich', 'Caesar Salad', 'Pasta', 'Soup and Sandwich', 'Burger and Fries'];
+		const dinnerItems = ['Steak and Potatoes', 'Spaghetti and Meatballs', 'Roast Chicken', 'Fish and Chips', 'Stir Fry'];
+
+		// Get references to the buttons
+		const breakfastBtn = document.getElementById('breakfast-btn');
+		const lunchBtn = document.getElementById('lunch-btn');
+		const dinnerBtn = document.getElementById('dinner-btn');
+
+		// Add event listeners to the buttons
+		breakfastBtn.addEventListener('click', function() {
+			showRandomMenuItem(breakfastItems);
+		});
+
+		lunchBtn.addEventListener('click', function() {
+			showRandomMenuItem(lunchItems);
+		});
+
+		dinnerBtn.addEventListener('click', function() {
+			showRandomMenuItem(dinnerItems);
+		});
+
+		// Function to randomly select a menu item from an array and display it on the page
+		function showRandomMenuItem(items) {
+			const randomIndex = Math.floor(Math.random() * items.length);
+			const menuItem = items[randomIndex];
+			const menuItemElem = document.querySelector('.menu-item');
+			menuItemElem.textContent = menuItem;
+		}
+	</script>
+</body>
+</html>
